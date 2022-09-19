@@ -1,0 +1,27 @@
+
+body{
+  background-color: aqua;
+}
+ mat-card{
+  border-radius: 10px;
+}
+
+.container{
+    max-width: 500px;
+    margin: 10px auto;
+
+   
+  .example-card{
+    max-width: 500px;
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+
+      }
+      span{
+        .mat-button-wrapper {
+        background-color: aqua;
+      }
+    }
+  }
+}  

@@ -23,8 +23,7 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
     AngularMaterialModule,
     ReactiveFormsModule,
     MatPasswordStrengthModule
-    
-    
+       
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 

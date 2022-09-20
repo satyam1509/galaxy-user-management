@@ -1,91 +1,91 @@
 
 <div class="container">
 <mat-card >
-  <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
+  <mat-card-header style="justify-content: center;">
+      <mat-card-title style="color: rgb(120, 24, 168);">Register</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
+      <!--Name input field-->
     <p>
     <mat-form-field hintLabel="Max 15 characters" appearance="outline" style="width: 100%;">
-      <mat-label>First Name</mat-label>
-      <input matInput #input [formControl]="firstName" maxlength="15" placeholder="Enter First Name">
+      <mat-label>Name</mat-label>
+      <input matInput #input [formControl]="name" maxlength="15" placeholder="Enter Name">
       <mat-hint align="end">{{input.value.length || 0}}/15</mat-hint>
     </mat-form-field>
   </p>
-  <p>
-    <mat-form-field hintLabel="Max 15 characters" appearance="outline" style="width: 100%;">
-      <mat-label>Last Name</mat-label>
-      <input matInput #input [formControl]="lastName" maxlength="15" placeholder="Enter Last Name">
-      <mat-hint align="end">{{input.value.length || 0}}/15</mat-hint>
-    </mat-form-field>
-  </p>
+
+ 
+
+  <!--Email input field-->
   <p>
     <mat-form-field  appearance="outline" style="width: 100%;">
       <mat-label>Email</mat-label>
       <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      <mat-error *ngIf="emailFormControl.hasError('email') ">
         Please enter a valid email address
       </mat-error>
       <mat-error *ngIf="emailFormControl.hasError('required')">
         Email is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field hintLabel="Max 10 Digits" appearance="outline" style="width: 100%; text-decoration: none;">
-      <mat-label>Mobile No.</mat-label>
-      <input matInput #mobileNo [formControl]="mobile" maxlength="10" placeholder="Ex. 1234567890">
-      <mat-hint align="end">{{mobileNo.value.length}} / 10</mat-hint>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" style="width: 100%; border-radius: 20px;">Sign Up</button>
-    </mat-card-actions>
-  </p>
-  <div fxFlex>
-    <!--password input filed-->
-    <mat-form-field appearance="outline" style="width: 100%" [color]="passwordComponent.color">
+    </p>
+ 
+    <!--password input field-->
+    <p>
+    <mat-form-field appearance="outline" style="width: 100%" hintLabel="Min 8 Characters" (input)="onPasswordMatcher()">
       <mat-label>Password</mat-label>
-      <mat-pass-toggle-visibility #toggle matSuffix></mat-pass-toggle-visibility>
-      <input matInput #password
-             [type]="toggle.type"
-             required
-             placeholder="Password">
+      <input  matInput #password [formControl]="pswd" [type]="passwordVisibilityService.showPassword ? 'password' : 'text'" placeholder="Enter Password" >
+      <mat-icon matSuffix (click)="passwordVisibilityService.togglePasswordVisibility()">
+        {{passwordVisibilityService.showPassword?'visibility_off':'visibility'}}
+      </mat-icon>
       <mat-hint align="end" aria-live="polite">
         {{password.value.length}} / {{passwordComponent.max}}
       </mat-hint>
     </mat-form-field>
+    </p>
+
+    <!--@angular-material-extensions/password-strength's main component-->
+    <mat-password-strength-info [passwordComponent]="passwordComponent">
+    </mat-password-strength-info>
+    <mat-password-strength  #passwordComponent [password]="password.value">
+    </mat-password-strength>
+    
+  
 
     <!--confirm password input field-->
-    <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
+    <mat-form-field appearance="outline" style="width: 100%; margin-top: 10px;">
+      <mat-label>Confirm Password</mat-label>
+      <input  matInput [formControl]="confirmPswd" [type]="passwordVisibilityService.showPassword ? 'password' : 'text'" placeholder="Repeat Password" (input)="onPasswordMatcher()">
+      <mat-icon matSuffix (click)="passwordVisibilityService.togglePasswordVisibility()">
+        {{passwordVisibilityService.showPassword?'visibility_off':'visibility'}}
+      </mat-icon>
+      <mat-error *ngIf="confirmPswd.invalid && !confirmPswd.hasError('required')">Passwords don't match</mat-error>
     </mat-form-field>
+   
+    <!--Sign Up Button -->
+    <p>
+    <mat-card-actions>
+    <button mat-raised-button color="primary" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Sign Up</button>
+    </mat-card-actions>
+   </p>
 
-    
-    <!--@angular-material-extensions/password-strength's main component-->
-    <mat-password-strength #passwordComponent
-                           (onStrengthChanged)="onStrengthChanged($event)"
-                           [password]="password.value">
-    </mat-password-strength>
-    <!--Password's strength info-->
-    <mat-password-strength-info
-      *ngIf="showDetails"
-      [passwordComponent]="passwordComponent">
-    </mat-password-strength-info>
-    
-  </div>
-   </form>
-  </mat-card-content>
-  <mat-card-footer>
-    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
-  </mat-card-footer>
+   <div class="social">
+   <button mat-button style="padding: 1rem;">
+<mat-icon style="width: 50px; height:30px" >
+  <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
+</mat-icon> SignUp With Google
+</button>  
 
-</mat-card>
-
+<button mat-button style="padding: 1rem;" >
+  <mat-icon style="width: 50px; height:30px" >
+    <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
+  </mat-icon> SignUp With Facebook
+</button>
 </div>
+   </form>
+    </mat-card-content>
+    
+    </mat-card>
+    </div>
+  

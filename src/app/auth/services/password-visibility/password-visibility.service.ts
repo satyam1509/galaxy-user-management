@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PasswordVisibilityService {
-  public showPassword: boolean = false;
+  public showPassword: boolean = true;
   constructor() { }
 
   public togglePasswordVisibility(): void {
    
       this.showPassword = !this.showPassword;
- 
+
   }
  }
 

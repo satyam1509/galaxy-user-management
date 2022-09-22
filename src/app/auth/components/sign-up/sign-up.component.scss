@@ -8,10 +8,13 @@ img {
   top: 14px;
 }
 
- mat-card{
+ 
+  .mat-card{
+    border: 5px solid rgb(103, 9, 103) ;
+    border-radius: 10px;
+  }
+ 
 
-  border-radius: 10px;
-}
 
 .container{
     max-width: 600px;
@@ -40,4 +43,18 @@ mat-card-title{
   border-radius: 5rem;
   width: 17rem;
   height: 4rem;
+}
+
+.card-footer-signup{
+  text-align: center;
+    font-size: 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    a:link {
+      text-decoration: none;
+    }
+}
+
+mat-toolbar{
+  text-align: center;
 }

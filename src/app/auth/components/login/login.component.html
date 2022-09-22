@@ -6,16 +6,16 @@
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
                 <!--Email input field-->
                 <p>
                     <mat-form-field  appearance="outline" style="width: 100%;">
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput [formControl]="Email" placeholder="Ex. pat@example.com">
-                        <mat-error *ngIf="Email.hasError('email') ">
+                        <input type="email" matInput formControlName="Email" placeholder="Ex. pat@example.com">
+                        <mat-error *ngIf="loginForm.controls['Email'].hasError('email') ">
                             Please enter a valid email address
                         </mat-error>
-                        <mat-error *ngIf="Email.hasError('required')">
+                        <mat-error *ngIf="loginForm.controls['Email'].hasError('required')">
                     Email is <strong>required</strong>
                 </mat-error>
                 </mat-form-field>
@@ -24,7 +24,7 @@
             <p>
                 <mat-form-field appearance="outline" style="width: 100%" hintLabel="Min 8 Characters" >
                     <mat-label>Password</mat-label>
-                    <input  matInput #pswd [formControl]="password" [type]="passwordVisibilityService.showPassword ? 'password' : 'text'" placeholder="Enter Password" >
+                    <input  matInput #pswd formControlName="password" [type]="passwordVisibilityService.showPassword ? 'password' : 'text'" placeholder="Enter Password" >
                     <mat-icon matSuffix (click)="passwordVisibilityService.togglePasswordVisibility()">
                         {{passwordVisibilityService.showPassword?'visibility_off':'visibility'}}
                     </mat-icon>
@@ -33,28 +33,58 @@
                     </mat-hint>
                 </mat-form-field>
                     </p>
+
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Select Your Role</mat-label>
+                        <mat-select matNativeControl required formControlName="role">
+                          <mat-option value="Admin">Admin</mat-option>
+                          <mat-option value="User">User</mat-option>
+                         
+                        </mat-select>
+                        <mat-error *ngIf="loginForm.controls['role'].hasError('required')">
+                          This field is required
+                        </mat-error>
+                      </mat-form-field>
                     
                     <p>
                         <mat-card-actions>
                             <button mat-raised-button color="primary" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Login</button>
                         </mat-card-actions>
                     </p>
-
+                    <!-- <asl-google-signin-button></asl-google-signin-button> -->
+                   
                     <div class="social">
-                        <button mat-button style="padding: 1rem;">
-                     <mat-icon style="width: 50px; height:30px" >
-                       <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
-                     </mat-icon> Login With Google
-                     </button>  
+                        <div id="g_id_onload"
+                        data-client_id='1019540697766-c7uidsnqqfb2l58ona4j7r9mned9tqi4.apps.googleusercontent.com'
+                        data-context="signup"
+                        data-ux_mode="popup"
+                        data-auto_prompt="false">
+                        </div>
+                        
+                         <div class="g_id_signin"
+                        data-type="standard"
+                        data-shape="pill"
+                        data-theme="filled_blue"
+                        
+                        data-size="large"
+                        data-logo_alignment="left">
+                        </div>
+                        <!--Facebook signin-->
+    
+                        <div class="fb-login-button" data-width="100%" data-size="large" data-button-type="continue_with" data-layout="rounded" 
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        
                      
-                     <button mat-button style="padding: 1rem;" >
-                       <mat-icon style="width: 50px; height:30px" >
-                         <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
-                       </mat-icon> Login With Facebook
-                     </button>
                      </div>
-                </form>
-        </mat-card-content>
+                    </form>
+
+            <mat-divider ></mat-divider>
+                <div class="signupSection">
+                    </div>
+            </mat-card-content>
+            <mat-card-footer>
+               <div class="card-footer">Don't have an account?  <strong><a routerLink="/auth/signup">SignUp</a></strong></div>
+            </mat-card-footer>
     </mat-card>
     
 </div>

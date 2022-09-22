@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { AngularMaterialModule } from '../angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import {  GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 
@@ -22,10 +23,27 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
     AuthRoutingModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    MatPasswordStrengthModule
+    MatPasswordStrengthModule,
+    SocialLoginModule
        
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '1019540697766-c7uidsnqqfb2l58ona4j7r9mned9tqi4.apps.googleusercontent.com'
+             )
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    }
+  ],
 
 
 })

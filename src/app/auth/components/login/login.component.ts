@@ -19,8 +19,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder, private router: Router,private loginService: LoginService) {
 
     this.loginForm = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      Email: ['', [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: ['', [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')]],
       role: ['', [Validators.required]]
     });
   }
@@ -31,17 +31,28 @@ export class LoginComponent {
     let body={
       email:this.loginForm.controls.Email.value,
       password:this.loginForm.controls.password.value,
-      role:this.loginForm.controls.role.value,
     }
+
+    this.loginService.login(body).subscribe({
+      next:(response)=>{
+        console.log("Login Success",response);
+        this.router.navigateByUrl('/admin/dashboard');
+      },
+      error:(error)=>{
+        console.log("error occurs",error);
+        
+      }
+    })
+
     console.log(body);
   }
 
-  signInHandler():void{
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{ 
-      localStorage.setItem('google_auth',JSON.stringify(data));
-      this.router.navigateByUrl('/admin/dashboard');
-    });
-  }
+  // signInHandler():void{
+  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{ 
+  //     localStorage.setItem('google_auth',JSON.stringify(data));
+  //     this.router.navigateByUrl('/admin/dashboard');
+  //   });
+  // }
 
   signOut(): void {
     this.authService.signOut();

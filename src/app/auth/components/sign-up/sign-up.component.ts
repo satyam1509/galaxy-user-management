@@ -14,7 +14,6 @@ export class SignUpComponent {
   hide = true;
   showDetails: boolean | undefined;
   signupForm;
-  // let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 
   constructor(public passwordVisibilityService: PasswordVisibilityService,
     private signUpService:SignupService,private formBuilder: FormBuilder,
@@ -22,8 +21,8 @@ export class SignUpComponent {
 
       this.signupForm=this.formBuilder.group({
         name : ['', [Validators.required]],
-        email :['', [Validators.required, Validators.email]],
-        password : ['', [Validators.required, Validators.minLength(8)]],
+        email :['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+        password : ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')]],
         cpassword : ['', [Validators.required]],
      });
     }
@@ -32,11 +31,12 @@ export class SignUpComponent {
     
     this.signUpService.signup(this.signupForm.getRawValue()).subscribe({
       next:(response)=>{
-        this.router.navigate(['/admin/dashboard']);
+        console.log(response);
+        this.router.navigate(['/auth']);
       },
       error:(error)=>{
         console.log(error);
-        this.router.navigate(['/auth/login']);  
+        // this.router.navigate(['/auth/login']);  
       }
     });
   }

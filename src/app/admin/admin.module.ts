@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AngularMaterialModule } from '../angular-material.module';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    AngularMaterialModule
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }

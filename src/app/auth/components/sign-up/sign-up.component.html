@@ -22,8 +22,8 @@
   <p>
     <mat-form-field  appearance="outline" style="width: 100%;">
       <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="signupForm.controls['email'].hasError('email') ">
+      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" >
+      <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">
         Please enter a valid email address
       </mat-error>
       <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
@@ -65,10 +65,11 @@
     <!--Sign Up Button -->
     <p>
     <mat-card-actions>
-    <button mat-raised-button color="primary" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;" >Sign Up</button>
+    <button mat-raised-button color="primary" [disabled]="!signupForm.valid" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;" >Sign Up</button>
     </mat-card-actions>
    </p>
 
+   <!--Social signup Buttons-->
    <div class="social">
    <button mat-button style="padding: 1rem;">
   <mat-icon style="width: 50px; height:30px" >

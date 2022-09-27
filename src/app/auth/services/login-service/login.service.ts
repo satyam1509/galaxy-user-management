@@ -1,30 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
 import apis from 'src/app/shared/configs/apis';
+import { GoogleLoginProvider,SocialAuthService} from 'angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService{
-  userinfo: any=null;
+export class LoginService {
+  userinfo: any = null;
 
 
-  constructor(private http:HttpClient,private router:Router){
-    this.userinfo = localStorage.getItem('userinfo')||"{}";
-    this.userinfo =JSON.parse(this.userinfo);
+  constructor(private http: HttpClient,
+    private router: Router,
+    private auth:SocialAuthService) {
+    this.userinfo = localStorage.getItem('userinfo') || "{}";
+    this.userinfo = JSON.parse(this.userinfo);
   }
 
-  login(body:any) {
-    
-    console.log('login from auth');
-    
-    return this.http.post(apis.auth.login,body).pipe(tap((response)=>{
-      localStorage.setItem("userinfo",JSON.stringify(response));
-      this.userinfo=response;
-    })
-    )
+  login(body: any) {
+    return this.http.post(apis.auth.login, body)
+  }
+
+  signWithGoogle() {
+    this.auth.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.auth.authState.subscribe((user: any) => {
+      user.token = user.idToken;
+      user.isSocial = true;
+      user.role = 'user';
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this.router.navigateByUrl('admin/dashboard');
+    });
   }
 
   // logout(){
@@ -34,5 +40,8 @@ export class LoginService{
   //   this.router.navigate(["/auth"]);
   // }
 
-  
-}
+  }
+
+
+
+

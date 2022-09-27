@@ -1,11 +1,8 @@
-import {
-  GoogleLoginProvider,
-  SocialAuthService,
-  SocialUser,
-} from "@abacritt/angularx-social-login";
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { emailValidator } from "src/app/shared/validators/email-validator";
+import { passwordValidator } from "src/app/shared/validators/password-validator";
 import { LoginService } from "../../services/login-service/login.service";
 import { PasswordVisibilityService } from "../../services/password-visibility/password-visibility.service";
 
@@ -15,79 +12,44 @@ import { PasswordVisibilityService } from "../../services/password-visibility/pa
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  loginForm;
-  GoogleLoginProvider = GoogleLoginProvider;
+  loginForm:any;
+  userInfo:any;
 
   constructor(
     public passwordVisibilityService: PasswordVisibilityService,
-    private authService: SocialAuthService,
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService
   ) {
+
+  }
+
+  ngOnInit(){
     this.loginForm = this.formBuilder.group({
-      Email: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
-        ],
-      ],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern(
-            "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{7,}"
-          ),
-        ],
-      ],
+      Email: ["",[Validators.required,emailValidator],],
+      password: ["",[Validators.required,passwordValidator],],
       role: ["", [Validators.required]],
     });
   }
 
-  ngOnInit(): void {
-    this.authService.authState.subscribe((user: any) => {
-      localStorage.setItem("google_auth", JSON.stringify(user));
-      this.router.navigateByUrl("admin/dashboard");
-    });
-  }
 
   login() {
     let body = {
       username: this.loginForm.controls.Email.value,
       password: this.loginForm.controls.password.value,
     };
-
-    this.loginService.login(body).subscribe({
-      next: (response) => {
-        console.log("Login Success", response);
-        this.router.navigateByUrl("/admin/dashboard");
-      },
-      error: (error) => {
-        console.log("error occurs", error);
-      },
+    this.loginService.login(body).subscribe((res: any) => {
+      res.role = this.loginForm.controls.role.value;
+      localStorage.setItem("userInfo", JSON.stringify(res));
+      this.userInfo = res;
+      this.router.navigateByUrl("/admin/dashboard");
     });
-
-    console.log(body);
   }
+  
 
   signInWithGoogle() {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.loginService.signWithGoogle();
   }
 
-  // signInHandler():void{
-  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data)=>{
-  //     localStorage.setItem('google_auth',JSON.stringify(data));
-  //     this.router.navigateByUrl('/admin/dashboard');
-  //   });
-  // }
 
-  refreshGoogleToken(): void {
-    this.authService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
-  }
-
-  signOut(): void {
-    this.authService.signOut();
-  }
 }

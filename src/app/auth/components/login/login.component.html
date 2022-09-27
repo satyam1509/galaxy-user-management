@@ -12,7 +12,7 @@
                     <mat-form-field  appearance="outline" style="width: 100%;">
                         <mat-label>Email</mat-label>
                         <input type="email" matInput formControlName="Email" placeholder="Ex. pat@example.com">
-                        <mat-error *ngIf="loginForm.controls['Email'].hasError('pattern') ">
+                        <mat-error *ngIf="loginForm.controls.Email.invalid">
                             Please enter a valid email address
                         </mat-error>
                         <mat-error *ngIf="loginForm.controls['Email'].hasError('required')">
@@ -45,38 +45,31 @@
                           This field is required
                         </mat-error>
                       </mat-form-field>
+
+                      <div class="card-footer"><a routerLink="/auth/change-password">Forget Password?</a></div>
                     
                     <p>
                         <mat-card-actions>
                             <button mat-raised-button color="primary" [disabled]="!loginForm.valid" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Login</button>
                         </mat-card-actions>
                     </p>
-                    <!-- <asl-google-signin-button></asl-google-signin-button> -->
-                   
-                    <div class="social">
-                        <!-- <div id="g_id_onload"
-                        data-client_id='1019540697766-c7uidsnqqfb2l58ona4j7r9mned9tqi4.apps.googleusercontent.com'
-                        data-context="signup"
-                        data-ux_mode="popup"
-                        data-auto_prompt="false">
-                        </div>
-                        
-                         <div class="g_id_signin"
-                        data-type="standard"
-                        data-shape="pill"
-                        data-theme="filled_blue"
-                        
-                        data-size="large"
-                        data-logo_alignment="left">
-                        </div> -->
-                        <!--Facebook signin-->
-    
-                        <!-- <div class="fb-login-button" data-width="100%" data-size="large" data-button-type="continue_with" data-layout="rounded" 
-                        data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-                        
-                    </div>
+                    
                 </form>
-                <button (click)="signInWithGoogle()" mat-raised-button color="accent">Google</button>
+
+                <div class="social">
+                    <button mat-button style="padding: 1rem;" (click)="signInWithGoogle()">
+                      <mat-icon style="width: 50px; height:30px">
+                        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
+                      </mat-icon> SignUp With Google
+                    </button>
+          
+                    <button mat-button style="padding: 1rem;">
+                      <mat-icon style="width: 50px; height:30px">
+                        <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
+                      </mat-icon> SignUp With Facebook
+                    </button>
+                  </div>
+              
 
             <mat-divider ></mat-divider>
                 <div class="signupSection">

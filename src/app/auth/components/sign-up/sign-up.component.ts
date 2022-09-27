@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { emailValidator } from 'src/app/shared/validators/email-validator';
+import { passwordValidator } from 'src/app/shared/validators/password-validator';
 import { PasswordVisibilityService } from '../../services/password-visibility/password-visibility.service';
 import { SignupService } from '../../services/signup-service/signup.service';
 
@@ -21,9 +23,9 @@ export class SignUpComponent {
 
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')]],
-      cpassword: ['', [Validators.required]],
+      email: ['', [Validators.required, emailValidator]],
+      password: ['', [Validators.required, Validators.minLength(8), passwordValidator]],
+      cpassword: ['', [Validators.required,passwordValidator]],
     });
   }
 

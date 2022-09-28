@@ -17,9 +17,9 @@ const routes: Routes = [
     loadChildren:()=>import('./public/public.module').then(m=>m.PublicModule)
   },
   {
-    path:'**',
-    component:LoginComponent,
-    pathMatch:'full'
+    path:'',
+    pathMatch:'full',
+    redirectTo:'auth/login'
    }
 ];
 

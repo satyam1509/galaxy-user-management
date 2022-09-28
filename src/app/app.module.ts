@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login';
 import {  GoogleLoginProvider} from 'angularx-social-login';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 
 
 
@@ -21,6 +22,8 @@ import {  GoogleLoginProvider} from 'angularx-social-login';
     ReactiveFormsModule,
     HttpClientModule,
     SocialLoginModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderRouterModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

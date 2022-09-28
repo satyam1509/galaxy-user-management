@@ -70,20 +70,20 @@
         <!--Sign Up Button -->
         <p>
           <mat-card-actions>
-            <button mat-raised-button color="primary" [disabled]="!signupForm.valid"
+            <button mat-raised-button color="primary" [disabled]="!signupForm.valid" matTooltip="Register"
               style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Sign Up</button>
           </mat-card-actions>
         </p>
 
         <!--Social signup Buttons-->
         <div class="social">
-          <button mat-button style="padding: 1rem;">
+          <button mat-button style="padding: 1rem;" matTooltip="Signup using Google Account">
             <mat-icon style="width: 50px; height:30px">
               <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
             </mat-icon> SignUp With Google
           </button>
 
-          <button mat-button style="padding: 1rem;">
+          <button mat-button style="padding: 1rem;" matTooltip="Signup using Facebook Account">
             <mat-icon style="width: 50px; height:30px">
               <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
             </mat-icon> SignUp With Facebook
@@ -94,7 +94,7 @@
 
     <mat-divider inset="true"></mat-divider>
     <mat-card-footer>
-      <div class="card-footer-signup">Already a member? <strong><a routerLink="/auth/login">Login</a></strong></div>
+      <div class="card-footer-signup" matTooltip="Have an account go to login page ">Already a member? <strong><a routerLink="/auth/login">Login</a></strong></div>
     </mat-card-footer>
 
   </mat-card>

@@ -3,9 +3,9 @@
 
         <mat-card>
             <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
+                <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
             <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
                 <!--Email input field-->
                 <p>
@@ -16,9 +16,9 @@
                             Please enter a valid email address
                         </mat-error>
                         <mat-error *ngIf="loginForm.controls['Email'].hasError('required')">
-                    Email is <strong>required</strong>
-                </mat-error>
-                </mat-form-field>
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
             </p>
             
             <p>
@@ -32,53 +32,53 @@
                         {{pswd.value.length}} / 30
                     </mat-hint>
                 </mat-form-field>
-                    </p>
-
-                    <mat-form-field appearance="outline" style="width: 100%;">
-                        <mat-label>Select Your Role</mat-label>
-                        <mat-select matNativeControl required formControlName="role">
-                          <mat-option value="Admin">Admin</mat-option>
-                          <mat-option value="User">User</mat-option>
-                         
-                        </mat-select>
-                        <mat-error *ngIf="loginForm.controls['role'].hasError('required')">
-                          This field is required
-                        </mat-error>
-                      </mat-form-field>
-
-                      <div class="card-footer"><a routerLink="/auth/change-password">Forget Password?</a></div>
+            </p>
+            
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Select Your Role</mat-label>
+                <mat-select matNativeControl required formControlName="role">
+                    <mat-option value="Admin">Admin</mat-option>
+                    <mat-option value="User">User</mat-option>
                     
-                    <p>
-                        <mat-card-actions>
-                            <button mat-raised-button color="primary" [disabled]="!loginForm.valid" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Login</button>
-                        </mat-card-actions>
-                    </p>
-                    
-                </form>
+                </mat-select>
+                <mat-error *ngIf="loginForm.controls['role'].hasError('required')">
+                    This field is required
+                </mat-error>
+            </mat-form-field>
+            
+            <div class="card-footer"><a routerLink="/auth/change-password">Forget Password?</a></div>
+            
+            <p>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Login</button>
+                </mat-card-actions>
+            </p>
+            
+        </form>
+        
+        <div class="social">
+            <button mat-button style="padding: 1rem;" (click)="signInWithGoogle()">
+                <mat-icon style="width: 50px; height:30px">
+                    <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
+                </mat-icon> SignUp With Google
+            </button>
+            
+            <button mat-button style="padding: 1rem;">
+                <mat-icon style="width: 50px; height:30px">
+                    <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
+                </mat-icon> SignUp With Facebook
+            </button>
+        </div>
+        
+        
+        <mat-divider ></mat-divider>
+        <div class="signupSection">
+        </div>
+    </mat-card-content>
+    <mat-card-footer>
+        <div class="card-footer">Don't have an account?  <strong><a routerLink="/auth/signup">SignUp</a></strong></div>
+    </mat-card-footer>
+</mat-card>
 
-                <div class="social">
-                    <button mat-button style="padding: 1rem;" (click)="signInWithGoogle()">
-                      <mat-icon style="width: 50px; height:30px">
-                        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="google">
-                      </mat-icon> SignUp With Google
-                    </button>
-          
-                    <button mat-button style="padding: 1rem;">
-                      <mat-icon style="width: 50px; height:30px">
-                        <img src="	https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-facebook_-512.png" alt="fb">
-                      </mat-icon> SignUp With Facebook
-                    </button>
-                  </div>
-              
-
-            <mat-divider ></mat-divider>
-                <div class="signupSection">
-                    </div>
-            </mat-card-content>
-            <mat-card-footer>
-               <div class="card-footer">Don't have an account?  <strong><a routerLink="/auth/signup">SignUp</a></strong></div>
-            </mat-card-footer>
-    </mat-card>
-    
 </div>
 </div>

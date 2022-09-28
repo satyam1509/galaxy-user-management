@@ -1,3 +1,7 @@
+<ngx-ui-loader fgsColor="#ed17dc" fgsType="square-jelly-box" pbColor="#ed17dc" [pbThickness]="7" text="Loading..." textColor="#ed17dc" 
+    bgsColor="rgba(139,16,207,0.47)">
+</ngx-ui-loader>
 
-
-<router-outlet></router-outlet>
+<div ngxUiLoaderBlurred [blur]="7">
+    <router-outlet></router-outlet>
+</div>

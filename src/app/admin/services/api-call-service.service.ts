@@ -9,6 +9,6 @@ export class ApiCallServiceService {
   constructor(private http:HttpClient) { }
 
   getData(){
-    return this.http.get('https://reqres.in/api/users?page=1')
+    return this.http.get('https://reqres.in/api/users');
   }
 }

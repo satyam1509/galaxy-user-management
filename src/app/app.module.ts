@@ -8,8 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login';
 import {  GoogleLoginProvider} from 'angularx-social-login';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
-
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,14 @@ import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
     HttpClientModule,
     SocialLoginModule,
     NgxUiLoaderModule,
-    NgxUiLoaderRouterModule
+    NgxUiLoaderRouterModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 3000, // 3 seconds
+      progressBar: true,
+      preventDuplicates:true,
+    }),
+   
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

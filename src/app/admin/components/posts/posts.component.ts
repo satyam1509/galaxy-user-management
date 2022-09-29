@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { postsData } from './posts';
 import { ApiCallServiceService } from '../../services/api-call-service.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,35 +11,31 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements AfterViewInit{
+export class PostsComponent {
 
-  apiData!:postsData[] | any;
-  displayedColumns: string[] = ['id', 'email', 'first_name', 'last_name','avatar'];
-  dataSource: any;
+  apiData!: postsData[] | any;
+  displayedColumns: string[] = ['id', 'email', 'first_name', 'last_name', 'avatar'];
+  dataSource = new MatTableDataSource();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
- 
-  
-  constructor(private apiCallService:ApiCallServiceService) { 
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  @ViewChild(MatSort, { static: true })
+  sort!: MatSort;
+
+  constructor(private apiCallService: ApiCallServiceService) {
     this.fetchData();
   }
-  
-  fetchData(){
-    this.apiCallService.getData().subscribe((res:any)=>{
-      this.apiData=res.data;
-      this.dataSource= new MatTableDataSource(this.apiData)
-      console.log(this.apiData);
-      })
+
+  fetchData() {
+    this.apiCallService.getData().subscribe((res: any) => {
+      this.apiData = res.data;
+      this.dataSource = new MatTableDataSource(this.apiData);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-  
-
-  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -48,5 +44,4 @@ export class PostsComponent implements AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

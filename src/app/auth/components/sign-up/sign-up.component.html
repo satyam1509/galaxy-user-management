@@ -6,7 +6,7 @@
     </mat-card-header>
     <mat-card-content>
 
-      <form [formGroup]="signupForm" (ngSubmit)="signup()" autocomplete="off">
+      <form [formGroup]="signupForm" (ngSubmit)="signup()" autocomplete="on">
 
         <!--Name input field-->
         <p>
@@ -94,7 +94,8 @@
 
     <mat-divider inset="true"></mat-divider>
     <mat-card-footer>
-      <div class="card-footer-signup" matTooltip="Have an account go to login page ">Already a member? <strong><a routerLink="/auth/login">Login</a></strong></div>
+      <div class="card-footer-signup" matTooltip="Have an account go to login page ">Already a member? <strong><a
+            routerLink="/auth/login">Login</a></strong></div>
     </mat-card-footer>
 
   </mat-card>

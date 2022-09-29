@@ -18,6 +18,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { PostsComponent } from './components/posts/posts.component';
+import { SideNavComponent } from './components/dashboard-ui/side-nav/side-nav.component';
+import { HeaderComponent } from './components/dashboard-ui/header/header.component';
 
 
 
@@ -27,6 +29,8 @@ import { PostsComponent } from './components/posts/posts.component';
     DashboardComponent,
     NavigationComponent,
     PostsComponent,
+    SideNavComponent,
+    HeaderComponent,
     
     
  

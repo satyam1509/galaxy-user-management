@@ -11,12 +11,7 @@ export class SignupService {
   constructor(private http:HttpClient) { }
 
   signup(body:any){
-    console.log("signup service",body);
-    // return this.http.post(apis.auth.signUp,body).pipe(
-    //   (response)=>{
-    //     console.log(response);
-    //   }
-    // )}
+   
     return this.http.post(apis.auth.signUp, body);
   }
 }

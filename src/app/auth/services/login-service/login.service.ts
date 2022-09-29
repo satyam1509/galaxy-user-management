@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import apis from 'src/app/shared/configs/apis';
-import { GoogleLoginProvider,SocialAuthService} from 'angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LoginService {
 
   constructor(private http: HttpClient,
     private router: Router,
-    private auth:SocialAuthService) {
+    private auth: SocialAuthService) {
     this.userinfo = localStorage.getItem('userinfo') || "{}";
     this.userinfo = JSON.parse(this.userinfo);
   }
@@ -33,14 +33,8 @@ export class LoginService {
     });
   }
 
-  // logout(){
-  //   console.log("logout Clicked!!!");
-  //   this.userinfo={};
-  //   localStorage.setItem("userinfo","{}");
-  //   this.router.navigate(["/auth"]);
-  // }
 
-  }
+}
 
 
 

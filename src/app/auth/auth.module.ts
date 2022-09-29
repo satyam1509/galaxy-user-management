@@ -25,9 +25,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     AngularMaterialModule,
     ReactiveFormsModule,
     MatPasswordStrengthModule,
-    
-
-       
+ 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [

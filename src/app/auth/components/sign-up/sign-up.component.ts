@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { emailValidator } from 'src/app/shared/validators/email-validator';
 import { passwordValidator } from 'src/app/shared/validators/password-validator';
 import { PasswordVisibilityService } from '../../services/password-visibility/password-visibility.service';
@@ -17,32 +18,35 @@ export class SignUpComponent {
   showDetails: boolean | undefined;
   signupForm;
 
-  constructor(public passwordVisibilityService: PasswordVisibilityService,
-    private signUpService: SignupService, private formBuilder: FormBuilder,
-    private router: Router) {
+  constructor(
+    public passwordVisibilityService: PasswordVisibilityService,
+    private signUpService: SignupService, 
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService
+    ) {
 
     this.signupForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(8), passwordValidator]],
-      cpassword: ['', [Validators.required,passwordValidator]],
+      cpassword: ['', [Validators.required, passwordValidator]],
     });
   }
 
   signup() {
-
     this.signUpService.signup(this.signupForm.getRawValue()).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.router.navigate(['/auth']);
+      next: () => {
+        this.toastr.success('','Register Successfully!!');
+        this.router.navigate(['/auth/login']);
+        this.toastr.show('Please Login to continue!!');
       },
-      error: (error) => {
-        console.log(error);
-        // this.router.navigate(['/auth/login']);  
+      error: (response) => {
+        this.toastr.error('',response.error.message);
+        console.log(response.error.message);
       }
     });
   }
-
 
   /** confirm password and set error for it */
   onPasswordMatcher() {

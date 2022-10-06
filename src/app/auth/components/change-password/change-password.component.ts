@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PasswordVisibilityService } from '../../services/password-visibility/password-visibility.service';
 
 @Component({
   selector: 'app-change-password',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent   {
+onPasswordMatcher() {
+throw new Error('Method not implemented.');
+}
+changePasswordForm: any;
 
-  constructor() { }
+  constructor(public passwordVisibilityService:PasswordVisibilityService) { }
 
  
 

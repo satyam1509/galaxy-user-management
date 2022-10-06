@@ -1,24 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavigationComponent } from './components/dashboard-ui/navigation/navigation.component';
+import { AboutUsComponent } from '../public/components/about-us/about-us.component';
+import { ContactUsComponent } from '../public/components/contact-us/contact-us.component';
+import { DashboardComponent } from './components/dashboard-ui/dashboard/dashboard.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
-    path:'dashboard',
-    component:NavigationComponent
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'contact',
+        component: ContactUsComponent
+      },
+      {
+        path: 'about',
+        component: AboutUsComponent
+      },
+    ]
   },
   {
-    path:'posts',
-    component:PostsComponent
+    path: '**',
+    redirectTo: '/admin/dashboard/posts',
+    pathMatch: 'full'
   },
-  {
-    path:'profile',
-    component:ProfileComponent
-  }
-  
-
 ];
 
 @NgModule({

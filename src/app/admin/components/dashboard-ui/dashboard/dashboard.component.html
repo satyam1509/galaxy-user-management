@@ -1,11 +1,13 @@
-<div class="grid-container">
-  <mat-grid-list cols="1">
-    <mat-grid-tile>
-      <mat-card class="dashboard-card">
-        <mat-card-content class="dashboard-card-content">
-          <app-posts></app-posts>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list> 
-</div>
+<app-header [sideNavdrawer]="sideNav"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #sideNav mode="side" opened >
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card class="dashboard-card">
+      <mat-card-content class="dashboard-card-content">
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

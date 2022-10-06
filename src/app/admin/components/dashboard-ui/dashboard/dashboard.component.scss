@@ -1,16 +1,13 @@
-.grid-container {
-  margin: 70px;
-  
-}
-
 .dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  height: fit-content;
-  
+  padding: 30px;
+  margin: 25px;
 }
 
+mat-sidenav-container {
+  background: transparent;
+  height: calc(100vh - 64px);
+}
 
+mat-sidenav {
+  background-color: #673AB7;
+}

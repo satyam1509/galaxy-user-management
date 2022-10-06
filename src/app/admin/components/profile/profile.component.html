@@ -1,1 +1,49 @@
-<p>profile works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="updateData()">
+<!--Name input field-->
+  <p>
+    <mat-form-field hintLabel="Max 15 characters" appearance="outline" style="width: 100%;">
+      <mat-label>Name</mat-label>
+      <input matInput #input formControlName="name" maxlength="15" placeholder="Enter Name"  >
+      <mat-icon  matSuffix>create</mat-icon>
+      <mat-hint align="end">{{input.value.length || 0}}/15</mat-hint>
+      <mat-error *ngIf="profileForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+   <!--Email input field-->
+   <p>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput formControlName="email"  >
+      <mat-icon matSuffix>block</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Role</mat-label>
+      <input matInput formControlName="role" >
+      <mat-icon matSuffix>block</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+      <mat-form-field color="primary" appearance="fill" style="width: 100%;">
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput [matDatepicker]="myDatePicker" [max]="maxDate" formControlName="dob">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker color="primary"></mat-datepicker>
+      </mat-form-field>
+  </p>
+
+  <p>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!profileForm.valid"
+        style="height: 50px; border-radius: 15px;font-size: large;">Save Changes</button>
+    </mat-card-actions>
+  </p>
+  
+</form>

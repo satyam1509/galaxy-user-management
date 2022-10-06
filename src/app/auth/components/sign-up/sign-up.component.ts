@@ -43,7 +43,6 @@ export class SignUpComponent {
       },
       error: (response) => {
         this.toastr.error('',response.error.message);
-        console.log(response.error.message);
       }
     });
   }

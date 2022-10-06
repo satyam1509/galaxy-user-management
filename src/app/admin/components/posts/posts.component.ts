@@ -1,9 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { postsData } from './posts';
-import { ApiCallServiceService } from '../../services/api-call-service.service';
+
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ApiCallServiceService } from '../../services/api-call-service.service';
+
 
 
 @Component({

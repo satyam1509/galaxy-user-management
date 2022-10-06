@@ -1,43 +1,27 @@
-<div class="side-nav-bar">
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer mode="side" class="sidenav">
-      <mat-nav-list>
-        <img src="https://www.allitjob.com/Company/Logo/f06990cf2a.jpg"
-          style="height: 250px; width: 270px; border-radius: 50%;">
 
-        <button mat-button class="menu-btn">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </button>
+    <mat-nav-list class="nav-list">
+      <img src="https://galaxywebapps.com/web/binary/company_logo"
+        style="height: 200px; width: 200px; border-radius: 50%; ">
 
-        <button routerLink="/admin/profile" mat-button class="menu-btn">
-          <mat-icon>assignment_ind</mat-icon>
-          <span>Profile</span>
-        </button>
+      <button mat-button class="menu-btn" routerLink="/admin/dashboard/profile">
+        <mat-icon>assignment_ind</mat-icon>
+        <span>Profile</span>
+      </button>
 
-        <button routerLink="/admin/posts" mat-button class="menu-btn">
-          <mat-icon>person</mat-icon>
-          <span>Posts</span>
-        </button>
+      <button mat-button class="menu-btn" routerLink="/admin/dashboard/posts">
+        <mat-icon>person</mat-icon>
+        <span>Posts</span>
+      </button>
 
-        <button mat-button class="menu-btn">
-          <mat-icon>info</mat-icon>
-          <span>About</span>
-        </button>
+      <button mat-button class="menu-btn" routerLink="/admin/dashboard/contact">
+        <mat-icon>stay_current_portrait</mat-icon>
+        <span>Contact</span>
+      </button>
 
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
+      <button mat-button class="menu-btn" routerLink="/admin/dashboard/about">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </button>
 
-      <mat-toolbar color="primary">
-        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
-        <div class="h2">
-          <h2>Dashboard</h2>
-        </div>
-      </mat-toolbar>
-      <app-dashboard></app-dashboard>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+    </mat-nav-list>
+ 

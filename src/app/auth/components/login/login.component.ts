@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private toastr: ToastrService
-  ) {
-
-   }
+   ) { }
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
@@ -46,7 +44,7 @@ export class LoginComponent implements OnInit {
     res.role = this.loginForm.controls.role.value;
     localStorage.setItem("userInfo", JSON.stringify(res));
     this.userInfo = res;
-    this.router.navigateByUrl("/admin/dashboard");
+    this.router.navigateByUrl("/admin/dashboard/posts");
     this.toastr.success(res.name,'Login Successfully!! Welcome ');
       },
       error: () => {

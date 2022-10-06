@@ -1,1 +1,41 @@
-<p>contact-us works!</p>
+<form [formGroup]="contactForm">
+    <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Full Name</mat-label>
+            <input type="text" matInput formControlName="fullName" placeholder="Enter Your Full Name">
+            <mat-error *ngIf="contactForm.controls['fullName'].hasError('required')">
+                Full Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </p>
+    <!--Email input field-->
+    <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="Email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="contactForm.controls.Email.invalid">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="contactForm.controls['Email'].hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Message</mat-label>
+            <textarea matInput placeholder="Enter Your Message" formControlName="message" rows="10"></textarea>
+            <mat-error *ngIf="contactForm.controls['message'].hasError('required')">
+                Message is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="!contactForm.valid"
+                style="width: 100%; height: 50px; border-radius: 15px;font-size: large;">Contact</button>
+        </mat-card-actions>
+    </p>
+
+</form>

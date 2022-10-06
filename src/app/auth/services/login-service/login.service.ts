@@ -29,7 +29,7 @@ export class LoginService {
       user.isSocial = true;
       user.role = 'user';
       localStorage.setItem('currentUser', JSON.stringify(user));
-      this.router.navigateByUrl('admin/dashboard');
+      this.router.navigateByUrl('admin/dashboard/posts');
     });
   }
 

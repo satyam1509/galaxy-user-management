@@ -19,7 +19,6 @@ export class ProfileComponent {
   });
   
   constructor(private formBuilder: FormBuilder,public auth:AuthService) { 
-    console.log(this.auth.userInfo.name);
   }
   
   updateData(){

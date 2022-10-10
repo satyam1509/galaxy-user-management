@@ -1,13 +1,15 @@
 <app-header [sideNavdrawer]="sideNav"></app-header>
 <mat-sidenav-container>
-  <mat-sidenav #sideNav mode="side" opened >
+<mat-sidenav #sideNav mode="side" [opened]="true" >
     <app-side-nav></app-side-nav>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div class="card">
     <mat-card class="dashboard-card">
       <mat-card-content class="dashboard-card-content">
         <router-outlet></router-outlet>
       </mat-card-content>
     </mat-card>
+  </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

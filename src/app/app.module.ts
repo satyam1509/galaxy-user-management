@@ -29,6 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar: true,
       preventDuplicates:true,
     }),
+    
+    
    
   ],
   providers: [{

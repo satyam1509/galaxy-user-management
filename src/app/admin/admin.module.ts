@@ -8,7 +8,8 @@ import { PostsComponent } from './components/posts/posts.component';
 import { SideNavComponent } from './components/dashboard-ui/side-nav/side-nav.component';
 import { HeaderComponent } from './components/dashboard-ui/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatTableExporterModule } from 'mat-table-exporter';
+import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home/dashboard-home.component';
 
 
 @NgModule({
@@ -18,13 +19,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     SideNavComponent,
     HeaderComponent,
+    DashboardHomeComponent,
     
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     AngularMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableExporterModule,
+    
+   
    
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

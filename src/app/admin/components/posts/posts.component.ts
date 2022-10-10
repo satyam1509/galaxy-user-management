@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { postsData } from './posts';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ApiCallServiceService } from '../../services/api-call-service.service';
+import { CdkTableExporter } from 'mat-table-exporter';
 
 
 
@@ -16,7 +17,7 @@ import { ApiCallServiceService } from '../../services/api-call-service.service';
 export class PostsComponent {
 
   apiData!: postsData[] | any;
-  displayedColumns: string[] = ['id', 'email', 'first_name', 'last_name', 'avatar'];
+  displayedColumns: string[] = ['id', 'avatar', 'first_name', 'last_name','email' ];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator)
@@ -46,4 +47,6 @@ export class PostsComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  
 }

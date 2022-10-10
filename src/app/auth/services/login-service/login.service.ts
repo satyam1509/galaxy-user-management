@@ -10,11 +10,11 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 export class LoginService {
   userinfo: any = null;
 
-
+  
   constructor(private http: HttpClient,
     private router: Router,
     private auth: SocialAuthService) {
-    this.userinfo = localStorage.getItem('userinfo') || "{}";
+    this.userinfo = localStorage.getItem('userInfo') || "{}";
     this.userinfo = JSON.parse(this.userinfo);
   }
 

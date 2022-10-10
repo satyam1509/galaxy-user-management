@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm" (ngSubmit)="updateData()">
+<form class="form" [formGroup]="profileForm" (ngSubmit)="updateData()">
 <!--Name input field-->
   <p>
     <mat-form-field hintLabel="Max 15 characters" appearance="outline" style="width: 100%;">
@@ -38,6 +38,7 @@
         <mat-datepicker #myDatePicker color="primary"></mat-datepicker>
       </mat-form-field>
   </p>
+<div class="buttons">
 
   <p>
     <mat-card-actions>
@@ -45,5 +46,13 @@
         style="height: 50px; border-radius: 15px;font-size: large;">Save Changes</button>
     </mat-card-actions>
   </p>
+  <p>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/admin/dashboard/changepassword"
+        style="height: 50px; border-radius: 15px;font-size: large;">Change Password</button>
+    </mat-card-actions>
+  </p>
+
+</div>
   
 </form>

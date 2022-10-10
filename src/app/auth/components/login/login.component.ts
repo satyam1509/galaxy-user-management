@@ -15,7 +15,6 @@ import { PasswordVisibilityService } from "../../services/password-visibility/pa
 })
 export class LoginComponent implements OnInit {
   loginForm:any;
-  userInfo:any;
 
   constructor(
     public passwordVisibilityService: PasswordVisibilityService,
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
     next: (res:any) =>{
     res.role = this.loginForm.controls.role.value;
     localStorage.setItem("userInfo", JSON.stringify(res));
-    this.userInfo = res;
     this.router.navigateByUrl("/admin/dashboard/posts");
     this.toastr.success(res.name,'Login Successfully!! Welcome ');
       },

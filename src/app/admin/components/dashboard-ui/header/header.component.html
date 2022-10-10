@@ -1,8 +1,11 @@
 <mat-toolbar color="primary">
-  <button type="button" (click)="sideNavdrawer.toggle()" mat-icon-button >
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+<div class="dashboard-btn">
+  <button type="button" (click)="sideNavdrawer.toggle()" mat-icon-button>
+    <mat-icon *ngIf="sideNavdrawer.opened" aria-label="Side nav toggle icon">close</mat-icon>
+    <mat-icon *ngIf="sideNavdrawer.opened === false" aria-label="Side nav toggle icon">menu</mat-icon>
+
   </button>
-  <div class="h2">
-    <h2>Dashboard</h2>
-    </div>
+  <h2>Dashboard</h2>
+</div>
+  <button mat-raised-button color="accent" (click)="logout()">Log Out</button>
 </mat-toolbar>

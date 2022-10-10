@@ -1,5 +1,7 @@
 export interface postsData {
     id: number,
-    name:string,
-    iso2:string,
+    email:string,
+    first_name:string;
+    last_name:string;
+    avatar:any;
 }

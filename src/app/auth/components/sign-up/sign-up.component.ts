@@ -20,7 +20,7 @@ export class SignUpComponent {
 
   constructor(
     public passwordVisibilityService: PasswordVisibilityService,
-    private signUpService: SignupService, 
+    private signUpService: SignupService,
     private formBuilder: FormBuilder,
     private router: Router,
     private toastr: ToastrService

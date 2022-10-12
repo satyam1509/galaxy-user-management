@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
   constructor(private ngxService: NgxUiLoaderService){}
 
   ngOnInit(): void {
-    this.ngxService.start(); 
+    this.ngxService.start();
     setTimeout(() => {
       this.ngxService.stop(); // stop foreground spinner of the master loader with 'default' taskId
     }, 100);

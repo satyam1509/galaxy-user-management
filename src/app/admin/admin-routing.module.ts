@@ -12,30 +12,116 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    data:{
+      title:'dashboard',
+      breadcrumb:[
+        {
+         label:'Dashboard',
+         url:'',
+        }
+      ]
+    },
     children: [
       {
         path:'home',
-        component:DashboardHomeComponent
+        component:DashboardHomeComponent,
+        data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'',
+             },
+           ]
+        },
       },
       {
         path: 'posts',
-        component: PostsComponent
+        component: PostsComponent,data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard/home',
+             },
+             {
+              label:'Posts',
+              url:'',
+             }
+           ]
+        },
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard/home',
+             },
+             {
+              label:'Profile',
+              url:'',
+             }
+           ]
+        },
       },
       {
         path: 'contact',
-        component: ContactUsComponent
+        component: ContactUsComponent,
+        data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard/home',
+             },
+             {
+              label:'Contact-Us',
+              url:'',
+             }
+           ]
+        },
       },
       {
         path: 'about',
-        component: AboutUsComponent
+        component: AboutUsComponent,
+        data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard/home',
+             },
+             {
+              label:'About-Us',
+              url:'',
+             }
+           ]
+        },
       },
       {
         path:'changepassword',
-        component:ChangePasswordComponent
+        component:ChangePasswordComponent,
+        data:{
+          title:'home',
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard/home',
+             },
+             {
+              label:'Profile',
+              url:'/admin/dashboard/profile',
+             },
+             {
+              label:'Change-Password',
+              url:'',
+             }
+           ]
+        },
       }
     ]
   },

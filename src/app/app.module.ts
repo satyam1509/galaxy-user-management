@@ -14,7 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,
   ],
-  imports: [  
+  imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -29,9 +29,6 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar: true,
       preventDuplicates:true,
     }),
-    
-    
-   
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

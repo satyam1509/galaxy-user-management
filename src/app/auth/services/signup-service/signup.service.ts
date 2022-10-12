@@ -11,7 +11,7 @@ export class SignupService {
   constructor(private http:HttpClient) { }
 
   signup(body:any){
-   
+
     return this.http.post(apis.auth.signUp, body);
   }
 }

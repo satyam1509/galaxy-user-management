@@ -1,8 +1,9 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { passwordValidator } from 'src/app/shared/validators/password-validator';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { ChangePasswordServiceService } from '../../services/change-password-service/change-password-service.service';
@@ -13,7 +14,9 @@ import { PasswordVisibilityService } from '../../services/password-visibility/pa
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss']
 })
-export class ChangePasswordComponent   {
+export class ChangePasswordComponent  {
+
+
 
   constructor(public passwordVisibilityService:PasswordVisibilityService,
     private formBuilder:FormBuilder,
@@ -21,7 +24,7 @@ export class ChangePasswordComponent   {
     private toastr: ToastrService,
     private router: Router,
     private auth:AuthService) { }
-  
+
   changePasswordForm = this.formBuilder.group({
     password:['',[Validators.required,passwordValidator]],
     cpassword: ['',[Validators.required,passwordValidator]],
@@ -38,7 +41,7 @@ export class ChangePasswordComponent   {
 
 
   changePassword(){
-    this.changePswd.changePassword(this.changePasswordForm.getRawValue(),this.requestOptions).subscribe({
+   this.changePswd.changePassword(this.changePasswordForm.getRawValue(),this.requestOptions).subscribe({
       next: () => {
         this.router.navigate(['/auth/login']);
         this.toastr.show('Password Changed!!','Please Login Again');
@@ -57,6 +60,4 @@ export class ChangePasswordComponent   {
       this.changePasswordForm.controls['cpassword'].setErrors(null);
     }
   }
- 
-
 }

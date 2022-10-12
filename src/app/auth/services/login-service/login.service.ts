@@ -10,7 +10,7 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 export class LoginService {
   userinfo: any = null;
 
-  
+
   constructor(private http: HttpClient,
     private router: Router,
     private auth: SocialAuthService) {

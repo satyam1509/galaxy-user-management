@@ -8,11 +8,11 @@ export class PasswordVisibilityService {
   constructor() { }
 
   public togglePasswordVisibility(): void {
-   
+
       this.showPassword = !this.showPassword;
 
   }
 
-  
+
  }
 

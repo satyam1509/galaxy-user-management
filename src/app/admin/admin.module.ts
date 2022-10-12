@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/dashboard-ui/header/header.compone
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home/dashboard-home.component';
+import { MatCarouselModule } from 'ng-mat-carousel';
+import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 
 
 @NgModule({
@@ -20,7 +22,6 @@ import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home
     SideNavComponent,
     HeaderComponent,
     DashboardHomeComponent,
-    
   ],
   imports: [
     CommonModule,
@@ -28,10 +29,9 @@ import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home
     AngularMaterialModule,
     ReactiveFormsModule,
     MatTableExporterModule,
-    
-   
-   
-  ],
+    MatCarouselModule.forRoot(),
+    NgDynamicBreadcrumbModule
+    ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }

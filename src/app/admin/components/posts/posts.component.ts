@@ -1,11 +1,9 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { postsData } from './posts';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ApiCallServiceService } from '../../services/api-call-service.service';
-import { CdkTableExporter } from 'mat-table-exporter';
 
 
 
@@ -48,5 +46,4 @@ export class PostsComponent {
     }
   }
 
-  
 }

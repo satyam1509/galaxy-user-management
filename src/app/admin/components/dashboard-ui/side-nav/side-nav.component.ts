@@ -11,7 +11,7 @@ import { ProfileComponent } from '../../profile/profile.component';
 })
 export class SideNavComponent {
 
-  constructor() {  
+  constructor() {
   }
-  
+
 }

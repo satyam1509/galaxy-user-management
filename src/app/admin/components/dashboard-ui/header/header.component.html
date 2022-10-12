@@ -1,11 +1,12 @@
 <mat-toolbar color="primary">
+
 <div class="dashboard-btn">
   <button type="button" (click)="sideNavdrawer.toggle()" mat-icon-button>
-    <mat-icon *ngIf="sideNavdrawer.opened" aria-label="Side nav toggle icon">close</mat-icon>
+    <mat-icon *ngIf="sideNavdrawer.opened" aria-label="Side nav toggle icon">keyboard_arrow_down</mat-icon>
     <mat-icon *ngIf="sideNavdrawer.opened === false" aria-label="Side nav toggle icon">menu</mat-icon>
-
   </button>
   <h2>Dashboard</h2>
 </div>
+<app-ng-dynamic-breadcrumb bgColor="" symbol=" / " lastLinkColor="" fontColor="#FFD740"></app-ng-dynamic-breadcrumb>
   <button mat-raised-button color="accent" (click)="logout()">Log Out</button>
 </mat-toolbar>

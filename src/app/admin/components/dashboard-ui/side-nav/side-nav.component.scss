@@ -1,6 +1,6 @@
 .nav-list {
   text-align: center;
-  color: aliceblue;
+  // color: aliceblue;
   font-weight: 900;
   width: 300px;
 }
@@ -20,6 +20,8 @@
 
 .menu-btn:hover {
   background-color: #b58dfa;
+  color: black;
+
 }
 
 mat-icon {

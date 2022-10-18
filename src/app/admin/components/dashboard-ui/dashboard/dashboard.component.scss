@@ -1,22 +1,21 @@
-
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
 
 .dashboard-card {
-  padding: 30px;
-  margin: 25px;
-  min-width: 500px;
-}
-
-.card{
-  display: flex;
-  // margin: 0 auto;
-  justify-content: space-around;
-}
-
-mat-sidenav-container {
-  background: transparent;
-  height: calc(100vh - 64px);
-}
-
-mat-sidenav {
-  background-color: #673AB7;
-}
+    padding: 30px;
+    margin: 25px;
+    min-width: 500px;
+  }
+  
+  .cardd{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  mat-sidenav-container {
+    background: transparent;
+    height: calc(100vh - 64px);
+  }
+  
+  mat-sidenav {
+    background-color: #673AB7;
+  }

@@ -1,15 +1,87 @@
-<app-header [sideNavdrawer]="sideNav"></app-header>
-<mat-sidenav-container>
-<mat-sidenav #sideNav mode="side" [opened]="true" >
-    <app-side-nav></app-side-nav>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="card">
-    <mat-card class="dashboard-card">
-      <mat-card-content class="dashboard-card-content">
-        <router-outlet></router-outlet>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div>
+  <app-header [sideNavdrawer]="sideNav"></app-header>
+  <mat-sidenav-container>
+    <mat-sidenav #sideNav mode="side" [opened]="true">
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="cardd">
+        <mat-card class="dashboard-card">
+          <mat-card-content class="dashboard-card-content">
+            <div >
+              <!-- Carousel wrapper -->
+                <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel"*ngIf="this.routerText.url === '/admin/dashboard'; else mainContent">
+                  <!-- Indicators -->
+                  <div class="carousel-indicators">
+                    <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"
+                      aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"
+                      aria-label="Slide 2"></button>
+                    <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"
+                      aria-label="Slide 3"></button>
+                  </div>
+
+                  <!-- Inner -->
+                  <div class="carousel-inner">
+                    <!-- Single item -->
+                    <div class="carousel-item active">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100"
+                        alt="Sunset Over the City" />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Passion</h5>
+                        <p>Our strong desire to produce high-quality work is what allows us to approach each project
+                          with renewed vigor, and enthusiasm.</p>
+                      </div>
+                    </div>
+
+                    <!-- Single item -->
+                    <div class="carousel-item">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100"
+                        alt="Canyon at Nigh" />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Focus</h5>
+                        <p>We are committed to all our projects. We are relentless in the pursuit of excellence in our
+                          methods as well as our results.</p>
+                      </div>
+                    </div>
+
+                    <!-- Single item -->
+                    <div class="carousel-item">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100"
+                        alt="Cliff Above a Stormy Sea" />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Teamwork</h5>
+                        <p>We share your desire to get the most out of your project – think of us as extra members of
+                          your team with all the skills you require.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Inner -->
+
+                  <!-- Controls -->
+                  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <!-- Carousel wrapper -->
+        
+                <!--main content-->
+              <ng-template #mainContent>
+                <router-outlet></router-outlet>
+              </ng-template>
+              <div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

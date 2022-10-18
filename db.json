@@ -1,0 +1,28 @@
+{
+  "posts-data": [
+    {
+      "firstName": "satyam ",
+      "lastName": "patel",
+      "email": "satyam1@gmail.com",
+      "mobile": 9098909890,
+      "id": 1
+    },
+    {
+      "firstName": "himan",
+      "lastName": "singh",
+      "email": "hs@yahoo.com",
+      "mobile": 3423456765,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

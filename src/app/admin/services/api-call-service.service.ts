@@ -9,6 +9,18 @@ export class ApiCallServiceService {
   constructor(private http:HttpClient) { }
 
   getData(){
-    return this.http.get('https://reqres.in/api/users');
+    return this.http.get('http://localhost:3000/posts-data/');
+  }
+
+  postData(data:any){
+    return this.http.post('http://localhost:3000/posts-data/',data);
+  }
+
+  updateData(data:any,id:number){
+    return this.http.put('http://localhost:3000/posts-data/'+id,data);
+  }
+
+  deleteData(id:number){
+    return this.http.delete('http://localhost:3000/posts-data/'+id);
   }
 }

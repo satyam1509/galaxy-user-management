@@ -22,7 +22,6 @@ export class ProfileComponent {
   }
 
   updateData(){
-
   let storageData:any = localStorage.getItem('userInfo')
   let modifiedData=JSON.parse(storageData);
   modifiedData.name=this.profileForm.controls.name.value;

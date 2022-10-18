@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChangePasswordComponent } from '../auth/components/change-password/change-password.component';
 import { AboutUsComponent } from '../public/components/about-us/about-us.component';
 import { ContactUsComponent } from '../public/components/contact-us/contact-us.component';
-import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home/dashboard-home.component';
 import { DashboardComponent } from './components/dashboard-ui/dashboard/dashboard.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -23,26 +22,13 @@ const routes: Routes = [
     },
     children: [
       {
-        path:'home',
-        component:DashboardHomeComponent,
-        data:{
-          title:'home',
-          breadcrumb:[
-            {
-              label:'Dashboard',
-              url:'',
-             },
-           ]
-        },
-      },
-      {
         path: 'posts',
         component: PostsComponent,data:{
           title:'home',
           breadcrumb:[
             {
               label:'Dashboard',
-              url:'/admin/dashboard/home',
+              url:'/admin/dashboard',
              },
              {
               label:'Posts',
@@ -59,7 +45,7 @@ const routes: Routes = [
           breadcrumb:[
             {
               label:'Dashboard',
-              url:'/admin/dashboard/home',
+              url:'/admin/dashboard',
              },
              {
               label:'Profile',
@@ -76,7 +62,7 @@ const routes: Routes = [
           breadcrumb:[
             {
               label:'Dashboard',
-              url:'/admin/dashboard/home',
+              url:'/admin/dashboard',
              },
              {
               label:'Contact-Us',
@@ -93,7 +79,7 @@ const routes: Routes = [
           breadcrumb:[
             {
               label:'Dashboard',
-              url:'/admin/dashboard/home',
+              url:'/admin/dashboard',
              },
              {
               label:'About-Us',
@@ -110,7 +96,7 @@ const routes: Routes = [
           breadcrumb:[
             {
               label:'Dashboard',
-              url:'/admin/dashboard/home',
+              url:'/admin/dashboard',
              },
              {
               label:'Profile',
@@ -127,7 +113,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/admin/dashboard/home',
+    redirectTo: '/admin/dashboard',
     pathMatch: 'full'
   },
 ];

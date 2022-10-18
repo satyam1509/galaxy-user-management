@@ -1,0 +1,72 @@
+
+<h1 mat-dialog-title>Add User Data</h1>
+<div mat-dialog-content style="height: 450px;">
+    <form class="form" [formGroup]="userDataForm" >
+      <!-- <p>
+        <mat-form-field>
+          <mat-label>Profile Picture</mat-label>
+          <input matInput type="file" formControlName="profile_img" placeholder="Upload Profile Picture">
+        </mat-form-field>
+      </p> -->
+
+        <!--First-Name input field-->
+          <p>
+            <mat-form-field hintLabel="Max 15 characters" appearance="outline" >
+              <mat-label>First Name</mat-label>
+              <input matInput #firstNameInput formControlName="firstName" maxlength="15" placeholder="Enter Name"  >
+              <mat-icon  matSuffix>create</mat-icon>
+              <mat-hint align="end">{{firstNameInput.value.length || 0}}/15</mat-hint>
+              <mat-error *ngIf="userDataForm.controls['firstName'].hasError('required')">
+                        First Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </p>
+
+          <!--Last-Name input field-->
+          <p>
+            <mat-form-field hintLabel="Max 10 characters" appearance="outline" >
+              <mat-label>Last Name</mat-label>
+              <input matInput #lastNameInput formControlName="lastName" maxlength="15" placeholder="Enter Name"  >
+              <mat-icon  matSuffix>create</mat-icon>
+              <mat-hint align="end">{{lastNameInput.value.length || 0}}/15</mat-hint>
+              <mat-error *ngIf="userDataForm.controls['lastName'].hasError('required')">
+                        Last Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </p>
+
+           <!--Email input field-->
+           <p>
+            <mat-form-field appearance="outline" >
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                <mat-error *ngIf="userDataForm.controls.email.invalid">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="userDataForm.controls['email'].hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+          <!--mobile no. field-->
+          <p>
+            <mat-form-field hintLabel=" 10 Digits" appearance="outline" >
+              <mat-label>Mobile No.</mat-label>
+              <input type="number" matInput #mobNo formControlName="mobile" [maxlength]="10" placeholder="Enter Mobile No."  >
+              <mat-icon  matSuffix>create</mat-icon>
+              <mat-hint align="end">{{mobNo.value.length || 0}}/10</mat-hint>
+              <mat-error *ngIf="userDataForm.controls['mobile'].hasError('required')">
+                       Mobile Number is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="userDataForm.controls['mobile'].hasError('pattern')">Mobile number is not 10 digit</mat-error>
+            </mat-form-field>
+          </p>
+
+
+          <div mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close color="danger">Close</button>
+            <button mat-raised-button color="primary" (click)="addData()" mat-dialog [disabled]="!userDataForm.valid">{{actionBtn}}</button>
+          </div>
+    </form>
+</div>

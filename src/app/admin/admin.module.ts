@@ -9,9 +9,9 @@ import { SideNavComponent } from './components/dashboard-ui/side-nav/side-nav.co
 import { HeaderComponent } from './components/dashboard-ui/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { DashboardHomeComponent } from './components/dashboard-ui/dashboard-home/dashboard-home.component';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
+import { DataModalComponent } from './components/posts/data-modal/data-modal.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
     PostsComponent,
     SideNavComponent,
     HeaderComponent,
-    DashboardHomeComponent,
+    DataModalComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +30,7 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
     ReactiveFormsModule,
     MatTableExporterModule,
     MatCarouselModule.forRoot(),
-    NgDynamicBreadcrumbModule
+    NgDynamicBreadcrumbModule,
     ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })

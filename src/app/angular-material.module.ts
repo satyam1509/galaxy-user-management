@@ -34,6 +34,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialComponents = [
   CdkTreeModule,
@@ -71,6 +72,7 @@ const materialComponents = [
   MatProgressBarModule,
   LayoutModule,
   MatNativeDateModule,
+  MatDialogModule
 ];
 
 @NgModule({

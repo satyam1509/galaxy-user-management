@@ -37,7 +37,9 @@ export class DataModalComponent implements OnInit {
     this.userDataForm.controls['mobile'].setValue(this.editData.mobile);
   }
 }
-
+/**
+ * addData() function is used to call postData api to create data.
+ */
 
   addData(){
     if(!this.editData){
@@ -55,6 +57,10 @@ export class DataModalComponent implements OnInit {
     this.updateData();
   }
 }
+
+/**
+ * updateData() function is used to call updateData api to Edit data.
+ */
 
 updateData(){
   this.api.updateData(this.userDataForm.value,this.editData.id).subscribe({

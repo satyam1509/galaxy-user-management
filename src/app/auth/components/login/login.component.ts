@@ -13,24 +13,20 @@ import { PasswordVisibilityService } from "../../services/password-visibility/pa
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
 })
-export class LoginComponent implements OnInit {
-  loginForm:any;
+export class LoginComponent  {
+
+  loginForm = this.formBuilder.group({
+    Email: ["",[Validators.required,emailValidator],],
+    password: ["",[Validators.required,passwordValidator],],
+    role: ["", [Validators.required]],
+  });
 
   constructor(
     public passwordVisibilityService: PasswordVisibilityService,
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService,
-    private toastr: ToastrService
-   ) { }
-
-  ngOnInit(){
-    this.loginForm = this.formBuilder.group({
-      Email: ["",[Validators.required,emailValidator],],
-      password: ["",[Validators.required,passwordValidator],],
-      role: ["", [Validators.required]],
-    });
-  }
+    private toastr: ToastrService) { }
 
 
   login() {
@@ -51,7 +47,8 @@ export class LoginComponent implements OnInit {
       })
       }
 
-    signInWithGoogle() {
+      //google signup service call
+  signInWithGoogle() {
       this.loginService.signWithGoogle();
     }
   }

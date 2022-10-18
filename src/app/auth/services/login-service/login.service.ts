@@ -18,10 +18,12 @@ export class LoginService {
     this.userinfo = JSON.parse(this.userinfo);
   }
 
+  //calls the login api
   login(body: any) {
     return this.http.post(apis.auth.login, body)
   }
 
+  //implementation of google signup
   signWithGoogle() {
     this.auth.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.auth.authState.subscribe((user: any) => {

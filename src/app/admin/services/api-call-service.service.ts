@@ -8,6 +8,8 @@ export class ApiCallServiceService {
 
   constructor(private http:HttpClient) { }
 
+  //apis' for postdata table
+
   getData(){
     return this.http.get('http://localhost:3000/posts-data/');
   }

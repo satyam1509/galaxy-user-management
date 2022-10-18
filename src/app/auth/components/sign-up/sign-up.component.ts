@@ -16,7 +16,13 @@ import { SignupService } from '../../services/signup-service/signup.service';
 export class SignUpComponent {
   hide = true;
   showDetails: boolean | undefined;
-  signupForm;
+
+  signupForm = this.formBuilder.group({
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required, emailValidator]],
+    password: ['', [Validators.required, Validators.minLength(8), passwordValidator]],
+    cpassword: ['', [Validators.required, passwordValidator]],
+  });
 
   constructor(
     public passwordVisibilityService: PasswordVisibilityService,
@@ -24,16 +30,11 @@ export class SignUpComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private toastr: ToastrService
-    ) {
+    ) { }
 
-    this.signupForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, emailValidator]],
-      password: ['', [Validators.required, Validators.minLength(8), passwordValidator]],
-      cpassword: ['', [Validators.required, passwordValidator]],
-    });
-  }
-
+    /**
+     * This signup function calls the signup service api.
+     */
   signup() {
     this.signUpService.signup(this.signupForm.getRawValue()).subscribe({
       next: () => {

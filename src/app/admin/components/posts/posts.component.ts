@@ -47,6 +47,7 @@ export class PostsComponent implements OnInit {
     }
   }
 
+  //Opens the dialog box
   openDialog() {
     this.dialog.open(DataModalComponent,{
     }).afterClosed().subscribe(value=>{
@@ -56,6 +57,7 @@ export class PostsComponent implements OnInit {
     })
   }
 
+  //Function to fetch data from api
   getPostData() {
     this.apiCallService.getData().subscribe({
       next: (res) => {
@@ -69,6 +71,7 @@ export class PostsComponent implements OnInit {
     })
   }
 
+  //Function to edit data
   editPostData(row: any) {
     this.dialog.open(DataModalComponent, {
       data: row
@@ -79,6 +82,7 @@ export class PostsComponent implements OnInit {
     })
   }
 
+  //Function to delete data
   deletePostData(id:number){
     if(confirm('Are you sure you want to delete?')){
       this.apiCallService.deleteData(id).subscribe({

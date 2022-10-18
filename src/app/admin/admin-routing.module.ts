@@ -24,7 +24,6 @@ const routes: Routes = [
       {
         path: 'posts',
         component: PostsComponent,data:{
-          title:'home',
           breadcrumb:[
             {
               label:'Dashboard',
@@ -41,7 +40,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         data:{
-          title:'home',
           breadcrumb:[
             {
               label:'Dashboard',
@@ -58,7 +56,6 @@ const routes: Routes = [
         path: 'contact',
         component: ContactUsComponent,
         data:{
-          title:'home',
           breadcrumb:[
             {
               label:'Dashboard',
@@ -75,7 +72,6 @@ const routes: Routes = [
         path: 'about',
         component: AboutUsComponent,
         data:{
-          title:'home',
           breadcrumb:[
             {
               label:'Dashboard',
@@ -92,7 +88,6 @@ const routes: Routes = [
         path:'changepassword',
         component:ChangePasswordComponent,
         data:{
-          title:'home',
           breadcrumb:[
             {
               label:'Dashboard',

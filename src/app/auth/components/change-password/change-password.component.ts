@@ -1,9 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
 import { passwordValidator } from 'src/app/shared/validators/password-validator';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { ChangePasswordServiceService } from '../../services/change-password-service/change-password-service.service';
@@ -15,8 +14,6 @@ import { PasswordVisibilityService } from '../../services/password-visibility/pa
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent  {
-
-
 
   constructor(public passwordVisibilityService:PasswordVisibilityService,
     private formBuilder:FormBuilder,
@@ -39,8 +36,7 @@ export class ChangePasswordComponent  {
 
  requestOptions = { headers: this.headers };
 
-
-  changePassword(){
+ changePassword(){
    this.changePswd.changePassword(this.changePasswordForm.getRawValue(),this.requestOptions).subscribe({
       next: () => {
         this.router.navigate(['/auth/login']);

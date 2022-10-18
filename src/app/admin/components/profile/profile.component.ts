@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/auth/services/auth-service/auth.service';
 })
 export class ProfileComponent {
 
-  maxDate=new Date();
+  maxDate=new Date(); //ensures that user will not select future dates.
 
   profileForm = this.formBuilder.group({
     name:[{value:this.auth.userInfo.name,disabled:false},[Validators.required]],
@@ -21,6 +21,7 @@ export class ProfileComponent {
   constructor(private formBuilder: FormBuilder,public auth:AuthService) {
   }
 
+  //Function to update localStorage data
   updateData(){
   let storageData:any = localStorage.getItem('userInfo')
   let modifiedData=JSON.parse(storageData);

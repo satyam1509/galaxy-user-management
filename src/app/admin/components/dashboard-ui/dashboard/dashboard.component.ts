@@ -9,14 +9,12 @@ import { filter } from 'rxjs/operators';
 })
 export class DashboardComponent {
 
-
   routerText: any;
   constructor(private router: Router) {
     router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    )
-      .subscribe(event => {
-        this.routerText = event;
+    ).subscribe(event => {
+        this.routerText = event; //this variable contains the router url
       });
   }
 }

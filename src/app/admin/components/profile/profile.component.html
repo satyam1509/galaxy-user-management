@@ -21,6 +21,7 @@
     </mat-form-field>
   </p>
 
+  <!--Role input field-->
   <p>
     <mat-form-field appearance="outline" style="width: 100%;">
       <mat-label>Role</mat-label>
@@ -29,6 +30,7 @@
     </mat-form-field>
   </p>
 
+  <!--DOB date picker field-->
   <p>
       <mat-form-field color="primary" appearance="fill" style="width: 100%;">
         <mat-label>Date Of Birth</mat-label>
@@ -38,8 +40,9 @@
         <mat-datepicker #myDatePicker color="primary"></mat-datepicker>
       </mat-form-field>
   </p>
-<div class="buttons">
 
+  
+<div class="buttons">
   <p>
     <mat-card-actions>
       <button mat-raised-button color="primary" [disabled]="!profileForm.valid"

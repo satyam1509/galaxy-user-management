@@ -57,15 +57,15 @@
             {{passwordVisibilityService.showPassword?'visibility_off':'visibility'}}
           </mat-icon>
           <mat-error
-            *ngIf="signupForm.controls['cpassword'].invalid && !signupForm.controls['cpassword'].hasError('required')">
-            Passwords don't match</mat-error>
+          *ngIf="signupForm.controls['cpassword'].invalid && !signupForm.controls['cpassword'].hasError('required')">
+          Passwords don't match</mat-error>
         </mat-form-field>
 
         <!--@angular-material-extensions/password-strength's main component-->
-        <mat-password-strength-info [passwordComponent]="passwordComponent">
-        </mat-password-strength-info>
         <mat-password-strength #passwordComponent [password]="password.value">
         </mat-password-strength>
+        <mat-password-strength-info [passwordComponent]="passwordComponent">
+        </mat-password-strength-info>
 
         <!--Sign Up Button -->
         <p>

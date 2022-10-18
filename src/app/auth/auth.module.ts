@@ -7,9 +7,6 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { AngularMaterialModule } from '../angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
-import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
-
-
 
 
 @NgModule({
@@ -17,7 +14,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     LoginComponent,
     SignUpComponent,
     ChangePasswordComponent,
-    ForgetPasswordComponent
+
   ],
   imports: [
     CommonModule,
@@ -29,7 +26,6 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-
   ],
 
 

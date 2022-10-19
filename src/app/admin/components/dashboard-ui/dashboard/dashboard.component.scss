@@ -3,19 +3,20 @@
 .dashboard-card {
     padding: 30px;
     margin: 25px;
-    min-width: 500px;
+    width: 60%;
+    // min-width: 500px;
   }
-  
+
   .cardd{
     display: flex;
     justify-content: space-evenly;
   }
-  
+
   mat-sidenav-container {
     background: transparent;
     height: calc(100vh - 64px);
   }
-  
+
   mat-sidenav {
     background-color: #673AB7;
   }

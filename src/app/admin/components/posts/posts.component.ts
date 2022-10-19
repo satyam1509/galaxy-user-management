@@ -17,7 +17,7 @@ export class PostsComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  @ViewChild(MatSort, { static: true })
+  @ViewChild(MatSort)
   sort!: MatSort;
 
   displayedColumns: string[] = ['id' ,'firstName', 'lastName', 'email', 'mobile', 'action'];

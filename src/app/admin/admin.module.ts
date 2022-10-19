@@ -12,6 +12,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 import { DataModalComponent } from './components/posts/data-modal/data-modal.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { EchartsComponent } from './components/echarts/echarts.component';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { DataModalComponent } from './components/posts/data-modal/data-modal.com
     SideNavComponent,
     HeaderComponent,
     DataModalComponent,
+    EchartsComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,9 @@ import { DataModalComponent } from './components/posts/data-modal/data-modal.com
     MatTableExporterModule,
     MatCarouselModule.forRoot(),
     NgDynamicBreadcrumbModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })

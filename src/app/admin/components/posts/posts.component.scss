@@ -1,14 +1,9 @@
-  
+
   .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
-  
- .avatar{
-  border-radius: 50%;
-  height: 60px;
- }
-  
+
  .exporter{
   padding: 15px;
     button{
@@ -16,6 +11,7 @@
     }
  }
 
- th.mat-header-cell{
-  margin-left: 10px;
+ .table{
+  display: flex;
+  flex-direction: column;
  }

@@ -4,6 +4,7 @@ import { ChangePasswordComponent } from '../auth/components/change-password/chan
 import { AboutUsComponent } from '../public/components/about-us/about-us.component';
 import { ContactUsComponent } from '../public/components/contact-us/contact-us.component';
 import { DashboardComponent } from './components/dashboard-ui/dashboard/dashboard.component';
+import { EchartsComponent } from './components/echarts/echarts.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -47,6 +48,22 @@ const routes: Routes = [
              },
              {
               label:'Profile',
+              url:'',
+             }
+           ]
+        },
+      },
+      {
+        path: 'echart',
+        component: EchartsComponent,
+        data:{
+          breadcrumb:[
+            {
+              label:'Dashboard',
+              url:'/admin/dashboard',
+             },
+             {
+              label:'eChart',
               url:'',
              }
            ]
